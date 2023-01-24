@@ -1,4 +1,5 @@
 ﻿using ErrorOr;
+using MrClean.Core.Application.Authentication.Common;
 using MrClean.Core.Application.Common.Interfaces.Authentication;
 using MrClean.Core.Application.Common.Interfaces.Persistence;
 using MrClean.Core.Domain.Common.Errors;

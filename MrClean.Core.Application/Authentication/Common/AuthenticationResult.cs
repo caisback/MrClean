@@ -1,6 +1,6 @@
 ﻿using MrClean.Core.Domain.Entities;
 
-namespace MrClean.Core.Application.Services.Authentication
+namespace MrClean.Core.Application.Authentication.Common
 {
     public record AuthenticationResult(
         User User,

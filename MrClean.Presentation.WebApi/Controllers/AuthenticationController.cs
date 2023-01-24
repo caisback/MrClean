@@ -1,6 +1,10 @@
 ﻿using ErrorOr;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MrClean.Core.Application.Services.Authentication;
+using MrClean.Core.Application.Authentication.Commands.Register;
+using MrClean.Core.Application.Authentication.Common;
+using MrClean.Core.Application.Authentication.Queries.Login;
+//using MrClean.Core.Application.Services.Authentication;
 using MrClean.Presentation.Contracts.Authentication;
 
 namespace MrClean.Presentation.WebApi.Controllers
@@ -9,27 +13,24 @@ namespace MrClean.Presentation.WebApi.Controllers
     [Route("auth")]
     public class AuthenticationController : ApiController //Controller
     {
-        private readonly IAuthenticationService _authenticationService;
+        //private readonly IAuthenticationService _authenticationService;
+        private readonly IMediator _mediator;
 
-        public AuthenticationController(IAuthenticationService authenticationService) => _authenticationService = authenticationService;
+
+        //public AuthenticationController(IAuthenticationService authenticationService) => _authenticationService = authenticationService;
+        public AuthenticationController(IMediator mediator) => _mediator = mediator;
 
         [HttpPost("register")]
-        public IActionResult Register(RegisterRequest registerRequest)
+        public async Task<IActionResult> Register(RegisterRequest registerRequest)
         {
-            ErrorOr<AuthenticationResult> authRegisterResult = _authenticationService.Register(registerRequest.FirstName, registerRequest.LastName, registerRequest.Email, registerRequest.Password);
+            //ErrorOr<AuthenticationResult> authRegisterResult = _authenticationService.Register(registerRequest.FirstName, registerRequest.LastName, registerRequest.Email, registerRequest.Password);
+
+            var command = new RegisterCommand(registerRequest.FirstName, registerRequest.LastName, registerRequest.Email, registerRequest.Password);
+            ErrorOr<AuthenticationResult> authRegisterResult = await _mediator.Send(command);
 
             return authRegisterResult.Match(
                 authResult => Ok(MapAuthResult(authResult)), 
                 errors => Problem(errors));
-
-            //if (authRegisterResult.IsT0)
-            //{
-            //    AuthenticationResponse registerResponse = MapAuthRegisterResult(authRegisterResult);
-            //    return Ok(registerResponse);
-            //}
-
-            //return Problem(statusCode: StatusCodes.Status409Conflict, title: "Email already exists.");
-
         }
 
         private static AuthenticationResponse MapAuthResult(AuthenticationResult authRegisterResult)
@@ -44,11 +45,13 @@ namespace MrClean.Presentation.WebApi.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login(LoginRequest loginRequest)
+        public async Task<IActionResult> Login(LoginRequest loginRequest)
         {
-            ErrorOr<AuthenticationResult> authLoginResult = _authenticationService.Login(loginRequest.Email, loginRequest.Password);
+            //ErrorOr<AuthenticationResult> authLoginResult = _authenticationService.Login(loginRequest.Email, loginRequest.Password);
 
-            // Default error from Application:
+            var query = new LoginQuery(loginRequest.Email, loginRequest.Password);
+            ErrorOr<AuthenticationResult> authLoginResult = await _mediator.Send(query);
+
             return authLoginResult.Match(
                 authResult => Ok(MapAuthResult(authResult)),
                 errors => Problem(errors));
