@@ -1,4 +1,5 @@
 ﻿using ErrorOr;
+using MrClean.Core.Application.Authentication.Common;
 
 namespace MrClean.Core.Application.Services.Authentication
 {
