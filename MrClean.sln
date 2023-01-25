@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrClean.Core.Domain", "MrClean.Core.Domain\MrClean.Core.Domain.csproj", "{7ABC7A2D-DEC2-457D-A1F8-1371976E13CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MrClean.Core.Domain", "MrClean.Core.Domain\MrClean.Core.Domain.csproj", "{7ABC7A2D-DEC2-457D-A1F8-1371976E13CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrClean.Core.Application", "MrClean.Core.Application\MrClean.Core.Application.csproj", "{9F8D39D4-D4D4-4D98-9BE4-405DEAD8BFF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MrClean.Core.Application", "MrClean.Core.Application\MrClean.Core.Application.csproj", "{9F8D39D4-D4D4-4D98-9BE4-405DEAD8BFF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrClean.Infrastructure", "MrClean.Infrastructure\MrClean.Infrastructure.csproj", "{C90098BC-32CB-4611-8A58-CA39ED6867A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MrClean.Infrastructure", "MrClean.Infrastructure\MrClean.Infrastructure.csproj", "{C90098BC-32CB-4611-8A58-CA39ED6867A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrClean.Presentation.WebApi", "MrClean.Presentation.WebApi\MrClean.Presentation.WebApi.csproj", "{B7F4B1EA-A23D-4F1B-B56C-FC23FC0BF2DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MrClean.Presentation.WebApi", "MrClean.Presentation.WebApi\MrClean.Presentation.WebApi.csproj", "{B7F4B1EA-A23D-4F1B-B56C-FC23FC0BF2DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrClean.Presentation.Contracts", "MrClean.Presentation.Contracts\MrClean.Presentation.Contracts.csproj", "{9DCC3160-36DE-4288-87FC-41633BE03502}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MrClean.Presentation.Contracts", "MrClean.Presentation.Contracts\MrClean.Presentation.Contracts.csproj", "{9DCC3160-36DE-4288-87FC-41633BE03502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrClean.TestProject", "MrClean.TestProject\MrClean.TestProject.csproj", "{45E5CC25-1F5C-49CD-9990-1196ACE79788}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{9DCC3160-36DE-4288-87FC-41633BE03502}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DCC3160-36DE-4288-87FC-41633BE03502}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DCC3160-36DE-4288-87FC-41633BE03502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E5CC25-1F5C-49CD-9990-1196ACE79788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E5CC25-1F5C-49CD-9990-1196ACE79788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E5CC25-1F5C-49CD-9990-1196ACE79788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E5CC25-1F5C-49CD-9990-1196ACE79788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
